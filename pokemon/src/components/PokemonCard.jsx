@@ -2,6 +2,7 @@ import Button from "./Button/Button";
 import { useNavigate } from "react-router-dom";
 import { getPath } from "../shared/Router";
 import SelectButton from "./Button/SelectButton";
+import RemoveButton from "./Button/RemoveButton";
 
 const PokemonCard = ({ pokemon, selectedPokemon, setSelectedPokemon }) => {
   const navigate = useNavigate();
@@ -12,14 +13,6 @@ const PokemonCard = ({ pokemon, selectedPokemon, setSelectedPokemon }) => {
 
     const path = getPath("PokemonDetail") + `/${selection.id}`;
     navigate(path);
-  };
-
-  const removeHandler = (selection) => {
-    const removedList = selectedPokemon.filter(
-      (pokemon) => pokemon.id !== selection.id,
-    );
-
-    setSelectedPokemon(removedList);
   };
 
   return (
@@ -38,14 +31,11 @@ const PokemonCard = ({ pokemon, selectedPokemon, setSelectedPokemon }) => {
         selectedPokemon={selectedPokemon}
         setSelectedPokemon={setSelectedPokemon}
       />
-      <Button
-        className="deleteButton"
-        onClick={() => {
-          removeHandler(pokemon);
-        }}
-      >
-        삭제
-      </Button>
+      <RemoveButton
+        pokemon={pokemon}
+        selectedPokemon={selectedPokemon}
+        setSelectedPokemon={setSelectedPokemon}
+      />
     </div>
   );
 };
