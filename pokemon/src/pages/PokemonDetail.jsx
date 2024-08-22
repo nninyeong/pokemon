@@ -14,7 +14,7 @@ const PokemonDetail = () => {
   return (
     <div className="detailContainer">
       <img src={pokemon.img_url} alt={`${pokemon.korean_name}의 이미지`} />
-      <p>타입: {pokemon.types}</p>
+      <p>타입: {pokemon.types.join(", ")}</p>
       <p>{pokemon.description}</p>
       <NavButton page={"Dex"}>뒤로 가기</NavButton>
     </div>
