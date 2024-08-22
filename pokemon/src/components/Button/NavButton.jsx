@@ -11,7 +11,7 @@ const NavButton = ({ page, children }) => {
 
   return (
     <Button
-      onClick={() => {
+      onClick={(e) => {
         navHandler(page);
       }}
     >
