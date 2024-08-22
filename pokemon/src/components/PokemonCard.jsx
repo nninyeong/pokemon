@@ -8,7 +8,7 @@ const PokemonCard = ({ pokemon, selectedPokemon, setSelectedPokemon }) => {
   const { img_url, korean_name, id } = pokemon;
 
   const moveDetail = (e, selection) => {
-    if (e.target.className === "selectButton") return;
+    if (e.target.className !== "pokemonCard") return;
 
     const path = getPath("PokemonDetail") + `/${selection.id}`;
     navigate(path);
@@ -27,8 +27,18 @@ const PokemonCard = ({ pokemon, selectedPokemon, setSelectedPokemon }) => {
 
     setSelectedPokemon([...selectedPokemon, selection]);
   };
+
+  const removeHandler = (selection) => {
+    const removedList = selectedPokemon.filter(
+      (pokemon) => pokemon.id !== selection.id,
+    );
+
+    setSelectedPokemon(removedList);
+  };
+
   return (
     <div
+      className="pokemonCard"
       onClick={(e) => {
         moveDetail(e, pokemon);
       }}
@@ -44,6 +54,14 @@ const PokemonCard = ({ pokemon, selectedPokemon, setSelectedPokemon }) => {
         }}
       >
         추가
+      </Button>
+      <Button
+        className="deleteButton"
+        onClick={() => {
+          removeHandler(pokemon);
+        }}
+      >
+        삭제
       </Button>
     </div>
   );
