@@ -25,16 +25,19 @@ const PokemonCard = ({ pokemon, selectedPokemon, setSelectedPokemon }) => {
       <img src={img_url} alt={`${korean_name}의 이미지`} />
       <p>{korean_name}</p>
       <p>No. {`${id}`.padStart(3, "0")}</p>
-      <SelectButton
-        pokemon={pokemon}
-        selectedPokemon={selectedPokemon}
-        setSelectedPokemon={setSelectedPokemon}
-      />
-      <RemoveButton
-        pokemon={pokemon}
-        selectedPokemon={selectedPokemon}
-        setSelectedPokemon={setSelectedPokemon}
-      />
+      {selectedPokemon.some((selected) => selected.id === pokemon.id) ? (
+        <RemoveButton
+          pokemon={pokemon}
+          selectedPokemon={selectedPokemon}
+          setSelectedPokemon={setSelectedPokemon}
+        />
+      ) : (
+        <SelectButton
+          pokemon={pokemon}
+          selectedPokemon={selectedPokemon}
+          setSelectedPokemon={setSelectedPokemon}
+        />
+      )}
     </div>
   );
 };
