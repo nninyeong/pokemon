@@ -2,21 +2,18 @@ import Slot from "./Slot";
 import PokemonCard from "../PokemonCard";
 import { SELECTABLE_POKEMON_NUM } from "../../constants/constant";
 import styled from "styled-components";
+import useSelectedPokemon from "../../hooks/useSelectedPokemon";
 
-const Dashboard = ({ selectedPokemon, setSelectedPokemon }) => {
+const Dashboard = () => {
+  const [selectedPokemon] = useSelectedPokemon();
+
   return (
     <StyledContainer>
       <StyledTitle>나만의 포켓몬</StyledTitle>
       <StyledSlotContainer>
         {Array.from({ length: SELECTABLE_POKEMON_NUM }, (_, i) =>
           selectedPokemon[i] ? (
-            <PokemonCard
-              key={i}
-              pokemon={selectedPokemon[i]}
-              type="inDashboard"
-              selectedPokemon={selectedPokemon}
-              setSelectedPokemon={setSelectedPokemon}
-            />
+            <PokemonCard key={i} pokemon={selectedPokemon[i]} type="inDashboard" />
           ) : (
             <Slot key={i} />
           ),

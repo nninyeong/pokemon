@@ -4,7 +4,7 @@ import SelectButton from "./Button/SelectButton";
 import RemoveButton from "./Button/RemoveButton";
 import styled from "styled-components";
 
-const PokemonCard = ({ pokemon, selectedPokemon, setSelectedPokemon, type }) => {
+const PokemonCard = ({ pokemon, type }) => {
   const navigate = useNavigate();
   const { img_url, korean_name, id } = pokemon;
 
@@ -25,11 +25,7 @@ const PokemonCard = ({ pokemon, selectedPokemon, setSelectedPokemon, type }) => 
       <img src={img_url} alt={`${korean_name}의 이미지`} />
       <StyledName>{korean_name}</StyledName>
       <p>No. {`${id}`.padStart(3, "0")}</p>
-      {type === "inSelectList" ? (
-        <SelectButton pokemon={pokemon} selectedPokemon={selectedPokemon} setSelectedPokemon={setSelectedPokemon} />
-      ) : (
-        <RemoveButton pokemon={pokemon} selectedPokemon={selectedPokemon} setSelectedPokemon={setSelectedPokemon} />
-      )}
+      {type === "inSelectList" ? <SelectButton pokemon={pokemon} /> : <RemoveButton pokemon={pokemon} />}
     </StyledCard>
   );
 };

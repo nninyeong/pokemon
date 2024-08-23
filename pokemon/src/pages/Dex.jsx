@@ -1,20 +1,17 @@
-import { useState } from "react";
 import Dashboard from "../components/Dashboard/Dashboard";
 import PokemonList from "../components/PokemonList";
 import MOCK_DATA from "../data/mock";
 import styled from "styled-components";
+import PokemonContextProvider from "../contexts/PokemonContextProvider";
 
 const Dex = () => {
-  const [selectedPokemon, setSelectedPokemon] = useState([]);
   return (
     <>
       <StyledContainer>
-        <Dashboard selectedPokemon={selectedPokemon} setSelectedPokemon={setSelectedPokemon} />
-        <PokemonList
-          pokemonList={MOCK_DATA}
-          selectedPokemon={selectedPokemon}
-          setSelectedPokemon={setSelectedPokemon}
-        />
+        <PokemonContextProvider>
+          <Dashboard />
+          <PokemonList pokemonList={MOCK_DATA} />
+        </PokemonContextProvider>
       </StyledContainer>
     </>
   );

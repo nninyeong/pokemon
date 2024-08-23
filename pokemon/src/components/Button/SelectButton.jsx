@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import Button from "./Button";
 import { SELECTABLE_POKEMON_NUM } from "../../constants/constant";
+import useSelectedPokemon from "../../hooks/useSelectedPokemon";
 
-const SelectButton = ({ pokemon, selectedPokemon, setSelectedPokemon }) => {
+const SelectButton = ({ pokemon }) => {
+  const [selectedPokemon, setSelectedPokemon] = useSelectedPokemon();
   const selectHandler = () => {
     const isMaxSelect = selectedPokemon.length === SELECTABLE_POKEMON_NUM;
     const isAlreadySelected = selectedPokemon.some((selected) => selected.id === pokemon.id);

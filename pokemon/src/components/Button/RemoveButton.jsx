@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import Button from "./Button";
+import useSelectedPokemon from "../../hooks/useSelectedPokemon";
 
-const RemoveButton = ({ pokemon, selectedPokemon, setSelectedPokemon }) => {
+const RemoveButton = ({ pokemon }) => {
+  const [selectedPokemon, setSelectedPokemon] = useSelectedPokemon();
+
   const removeHandler = () => {
     const removedList = selectedPokemon.filter((selected) => selected.id !== pokemon.id);
 
