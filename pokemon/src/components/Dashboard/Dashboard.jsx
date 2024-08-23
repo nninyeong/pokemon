@@ -13,6 +13,7 @@ const Dashboard = ({ selectedPokemon, setSelectedPokemon }) => {
             <PokemonCard
               key={i}
               pokemon={selectedPokemon[i]}
+              type="inDashboard"
               selectedPokemon={selectedPokemon}
               setSelectedPokemon={setSelectedPokemon}
             />

@@ -4,7 +4,7 @@ import SelectButton from "./Button/SelectButton";
 import RemoveButton from "./Button/RemoveButton";
 import styled from "styled-components";
 
-const PokemonCard = ({ pokemon, selectedPokemon, setSelectedPokemon }) => {
+const PokemonCard = ({ pokemon, selectedPokemon, setSelectedPokemon, type }) => {
   const navigate = useNavigate();
   const { img_url, korean_name, id } = pokemon;
 
@@ -25,11 +25,10 @@ const PokemonCard = ({ pokemon, selectedPokemon, setSelectedPokemon }) => {
       <img src={img_url} alt={`${korean_name}의 이미지`} />
       <StyledName>{korean_name}</StyledName>
       <p>No. {`${id}`.padStart(3, "0")}</p>
-      {/* TODO: 추가/삭제 버튼 선택 방식 변경 -> 선택된 포켓몬이라도 리스트에 있으면 추가 버튼이어야 함 */}
-      {selectedPokemon.some((selected) => selected.id === pokemon.id) ? (
-        <RemoveButton pokemon={pokemon} selectedPokemon={selectedPokemon} setSelectedPokemon={setSelectedPokemon} />
-      ) : (
+      {type === "inSelectList" ? (
         <SelectButton pokemon={pokemon} selectedPokemon={selectedPokemon} setSelectedPokemon={setSelectedPokemon} />
+      ) : (
+        <RemoveButton pokemon={pokemon} selectedPokemon={selectedPokemon} setSelectedPokemon={setSelectedPokemon} />
       )}
     </StyledCard>
   );

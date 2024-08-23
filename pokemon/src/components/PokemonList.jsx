@@ -10,6 +10,7 @@ const PokemonList = ({ pokemonList, selectedPokemon, setSelectedPokemon }) => {
             key={pokemon.id}
             pokemon={pokemon}
             selectedPokemon={selectedPokemon}
+            type="inSelectList"
             setSelectedPokemon={setSelectedPokemon}
           />
         );
