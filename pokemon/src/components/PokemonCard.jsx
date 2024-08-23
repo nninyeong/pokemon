@@ -46,7 +46,6 @@ const PokemonCard = ({ pokemon, selectedPokemon, setSelectedPokemon }) => {
 export default PokemonCard;
 
 const StyledCard = styled.div`
-  width: 150px;
   height: 210px;
   border-radius: 10px;
   box-shadow: 0 3px 5px var(--grey);
@@ -55,6 +54,8 @@ const StyledCard = styled.div`
   justify-content: center;
   align-items: center;
   gap: 10px;
+
+  background-color: white;
 `;
 
 const StyledName = styled.p`
