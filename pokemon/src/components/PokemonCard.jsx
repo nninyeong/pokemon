@@ -27,17 +27,9 @@ const PokemonCard = ({ pokemon, selectedPokemon, setSelectedPokemon }) => {
       <p>No. {`${id}`.padStart(3, "0")}</p>
       {/* TODO: 추가/삭제 버튼 선택 방식 변경 -> 선택된 포켓몬이라도 리스트에 있으면 추가 버튼이어야 함 */}
       {selectedPokemon.some((selected) => selected.id === pokemon.id) ? (
-        <RemoveButton
-          pokemon={pokemon}
-          selectedPokemon={selectedPokemon}
-          setSelectedPokemon={setSelectedPokemon}
-        />
+        <RemoveButton pokemon={pokemon} selectedPokemon={selectedPokemon} setSelectedPokemon={setSelectedPokemon} />
       ) : (
-        <SelectButton
-          pokemon={pokemon}
-          selectedPokemon={selectedPokemon}
-          setSelectedPokemon={setSelectedPokemon}
-        />
+        <SelectButton pokemon={pokemon} selectedPokemon={selectedPokemon} setSelectedPokemon={setSelectedPokemon} />
       )}
     </StyledCard>
   );
@@ -46,6 +38,7 @@ const PokemonCard = ({ pokemon, selectedPokemon, setSelectedPokemon }) => {
 export default PokemonCard;
 
 const StyledCard = styled.div`
+  width: 100%;
   height: 210px;
   border-radius: 10px;
   box-shadow: 0 3px 5px var(--grey);

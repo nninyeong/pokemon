@@ -9,10 +9,7 @@ const Dex = () => {
   return (
     <>
       <StyledContainer>
-        <Dashboard
-          selectedPokemon={selectedPokemon}
-          setSelectedPokemon={setSelectedPokemon}
-        />
+        <Dashboard selectedPokemon={selectedPokemon} setSelectedPokemon={setSelectedPokemon} />
         <PokemonList
           pokemonList={MOCK_DATA}
           selectedPokemon={selectedPokemon}
@@ -29,7 +26,9 @@ const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
   gap: 20px;
+
+  max-width: 1200px;
   padding: 20px;
+  margin: 0 auto;
 `;

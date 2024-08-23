@@ -16,6 +16,7 @@ const StyledSlot = styled.div`
   padding: 20px;
   background: white;
   width: 100%;
+  max-width: 100px;
   height: fit-content;
 `;
 

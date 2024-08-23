@@ -25,6 +25,7 @@ const StyledList = styled.div`
 
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  justify-items: center;
   align-items: center;
   gap: 20px;
   padding: 20px;
