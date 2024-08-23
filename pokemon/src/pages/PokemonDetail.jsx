@@ -46,6 +46,7 @@ const StyledName = styled.p`
 
 const StyledDesc = styled.p`
   width: 500px;
+  text-align: center;
 `;
 
 const StyledNavButtonToDex = styled(NavButton)`
