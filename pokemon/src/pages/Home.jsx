@@ -1,4 +1,3 @@
-import NavButton from "../components/Button/NavButton";
 import logo from "../assets/images/pokemon-logo.png";
 import { LogoImg, NavButtonToDex } from "../styles/Home.styles";
 import { CenterAlignBox } from "../styles/common.styles";
