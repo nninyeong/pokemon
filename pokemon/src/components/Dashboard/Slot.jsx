@@ -1,9 +1,24 @@
+import styled from "styled-components";
+import pokeballImg from "../../assets/images/pokeball.png";
+
 const Slot = () => {
   return (
-    <div
-      style={{ width: "50px", height: "50px", border: "1px solid black" }}
-    ></div>
+    <StyledSlot>
+      <StyledBG src={pokeballImg} />
+    </StyledSlot>
   );
 };
 
 export default Slot;
+
+const StyledSlot = styled.div`
+  border: 1px dashed var(--grey);
+  padding: 20px;
+  background: white;
+  width: 100%;
+  height: fit-content;
+`;
+
+const StyledBG = styled.img`
+  width: 100%;
+`;

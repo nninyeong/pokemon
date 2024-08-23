@@ -21,10 +21,15 @@ const PokemonList = ({ pokemonList, selectedPokemon, setSelectedPokemon }) => {
 export default PokemonList;
 
 const StyledList = styled.div`
+  width: 100%;
+
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  align-items: center;
   gap: 20px;
   padding: 20px;
+
+  border-radius: 10px;
 
   background-color: var(--light-grey);
 `;

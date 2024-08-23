@@ -2,12 +2,13 @@ import { useState } from "react";
 import Dashboard from "../components/Dashboard/Dashboard";
 import PokemonList from "../components/PokemonList";
 import MOCK_DATA from "../data/mock";
+import styled from "styled-components";
 
 const Dex = () => {
   const [selectedPokemon, setSelectedPokemon] = useState([]);
   return (
     <>
-      <div>
+      <StyledContainer>
         <Dashboard
           selectedPokemon={selectedPokemon}
           setSelectedPokemon={setSelectedPokemon}
@@ -17,9 +18,18 @@ const Dex = () => {
           selectedPokemon={selectedPokemon}
           setSelectedPokemon={setSelectedPokemon}
         />
-      </div>
+      </StyledContainer>
     </>
   );
 };
 
 export default Dex;
+
+const StyledContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 20px;
+  padding: 20px;
+`;
