@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import MOCK_DATA from "../data/mock";
 import NavButton from "../components/Button/NavButton";
+import styled from "styled-components";
 
 const PokemonDetail = () => {
   const param = useParams();
@@ -12,13 +13,47 @@ const PokemonDetail = () => {
   }
 
   return (
-    <div className="detailContainer">
+    <DetailContainer>
       <img src={pokemon.img_url} alt={`${pokemon.korean_name}의 이미지`} />
+      <StyledName>{pokemon.korean_name}</StyledName>
       <p>타입: {pokemon.types.join(", ")}</p>
-      <p>{pokemon.description}</p>
-      <NavButton page={"Dex"}>뒤로 가기</NavButton>
-    </div>
+      <StyledDesc>{pokemon.description}</StyledDesc>
+      <StyledNavButtonToDex page={"Dex"}>뒤로 가기</StyledNavButtonToDex>
+    </DetailContainer>
   );
 };
 
 export default PokemonDetail;
+
+const DetailContainer = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+`;
+
+const StyledName = styled.p`
+  font-size: 25px;
+  font-weight: 600;
+  color: var(--button-primary);
+`;
+
+const StyledDesc = styled.p`
+  width: 500px;
+`;
+
+const StyledNavButtonToDex = styled(NavButton)`
+  width: 100px;
+  height: 40px;
+  border-style: none;
+  border-radius: 5px;
+  background-color: var(--light-grey);
+
+  font-size: 16px;
+`;
