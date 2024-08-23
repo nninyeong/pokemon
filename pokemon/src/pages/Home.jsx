@@ -1,10 +1,14 @@
 import NavButton from "../components/Button/NavButton";
+import logo from "../assets/images/pokemon-logo.png";
+import { LogoImg, NavButtonToDex } from "../styles/Home.styles";
+import { CenterAlignBox } from "../styles/common.styles";
 
 const Home = () => {
   return (
-    <>
-      <NavButton page={"Dex"}>포켓몬 도감으로 이동</NavButton>
-    </>
+    <CenterAlignBox $gap={50}>
+      <LogoImg src={logo} />
+      <NavButtonToDex page={"Dex"}>포켓몬 도감 시작하기</NavButtonToDex>
+    </CenterAlignBox>
   );
 };
 
