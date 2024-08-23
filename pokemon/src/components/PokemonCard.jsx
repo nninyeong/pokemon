@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { getPath } from "../shared/Router";
 import SelectButton from "./Button/SelectButton";
 import RemoveButton from "./Button/RemoveButton";
+import styled from "styled-components";
 
 const PokemonCard = ({ pokemon, selectedPokemon, setSelectedPokemon }) => {
   const navigate = useNavigate();
@@ -15,15 +16,14 @@ const PokemonCard = ({ pokemon, selectedPokemon, setSelectedPokemon }) => {
   };
 
   return (
-    <div
+    <StyledCard
       className="pokemonCard"
       onClick={(e) => {
         moveDetail(e, pokemon);
       }}
-      style={{ width: "150px", height: "250px", border: "1px solid blue" }}
     >
       <img src={img_url} alt={`${korean_name}의 이미지`} />
-      <p>{korean_name}</p>
+      <StyledName>{korean_name}</StyledName>
       <p>No. {`${id}`.padStart(3, "0")}</p>
       {selectedPokemon.some((selected) => selected.id === pokemon.id) ? (
         <RemoveButton
@@ -38,8 +38,24 @@ const PokemonCard = ({ pokemon, selectedPokemon, setSelectedPokemon }) => {
           setSelectedPokemon={setSelectedPokemon}
         />
       )}
-    </div>
+    </StyledCard>
   );
 };
 
 export default PokemonCard;
+
+const StyledCard = styled.div`
+  width: 150px;
+  height: 210px;
+  border-radius: 10px;
+  box-shadow: 0 3px 5px var(--grey);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+`;
+
+const StyledName = styled.p`
+  font-weight: 600;
+`;

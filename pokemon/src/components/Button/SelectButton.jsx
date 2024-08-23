@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import Button from "./Button";
 import { SELECTABLE_POKEMON_NUM } from "../../constants/constant";
 
@@ -16,10 +17,28 @@ const SelectButton = ({ pokemon, selectedPokemon, setSelectedPokemon }) => {
   };
 
   return (
-    <Button className="selectButton" onClick={selectHandler}>
+    <StyledButton className="selectButton" onClick={selectHandler}>
       추가
-    </Button>
+    </StyledButton>
   );
 };
 
 export default SelectButton;
+
+const StyledButton = styled(Button)`
+  width: 45px;
+  height: 23px;
+  line-height: 23px;
+
+  border-style: none;
+  border-radius: 3px;
+  background-color: var(--button-primary);
+
+  color: white;
+  font-weight: 400;
+
+  &:hover {
+    background-color: var(--button-hover);
+    cursor: pointer;
+  }
+`;

@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import Button from "./Button";
 
 const RemoveButton = ({ pokemon, selectedPokemon, setSelectedPokemon }) => {
@@ -10,10 +11,28 @@ const RemoveButton = ({ pokemon, selectedPokemon, setSelectedPokemon }) => {
   };
 
   return (
-    <Button className="removeButton" onClick={removeHandler}>
+    <StyledButton className="removeButton" onClick={removeHandler}>
       삭제
-    </Button>
+    </StyledButton>
   );
 };
 
 export default RemoveButton;
+
+const StyledButton = styled(Button)`
+  width: 45px;
+  height: 23px;
+  line-height: 23px;
+
+  border-style: none;
+  border-radius: 3px;
+  background-color: var(--button-primary);
+
+  color: white;
+  font-weight: 400;
+
+  &:hover {
+    background-color: var(--button-hover);
+    cursor: pointer;
+  }
+`;

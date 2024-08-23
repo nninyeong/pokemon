@@ -1,5 +1,4 @@
 import styled, { createGlobalStyle } from "styled-components";
-import Button from "../components/Button/Button";
 
 export const GlobalStyles = createGlobalStyle`
 :root {
