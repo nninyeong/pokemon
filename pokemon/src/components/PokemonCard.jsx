@@ -49,6 +49,13 @@ const StyledCard = styled.div`
   gap: 10px;
 
   background-color: white;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 1px 5px 8px var(--grey);
+    transform: translateY(-5px);
+    transition: 0.1s;
+  }
 `;
 
 const StyledName = styled.p`
