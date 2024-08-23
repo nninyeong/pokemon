@@ -9,7 +9,7 @@ const PokemonCard = ({ pokemon, selectedPokemon, setSelectedPokemon }) => {
   const { img_url, korean_name, id } = pokemon;
 
   const moveDetail = (e, selection) => {
-    if (e.target.className !== "pokemonCard") return;
+    if (!e.target.classList.contains("pokemonCard")) return;
 
     const path = getPath("PokemonDetail") + `/${selection.id}`;
     navigate(path);
