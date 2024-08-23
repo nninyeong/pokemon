@@ -41,7 +41,7 @@ const DetailContainer = styled.div`
 const StyledName = styled.p`
   font-size: 25px;
   font-weight: 600;
-  color: var(--button-primary);
+  color: var(--pink-primary);
 `;
 
 const StyledDesc = styled.p`

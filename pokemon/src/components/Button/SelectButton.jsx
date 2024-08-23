@@ -5,9 +5,7 @@ import { SELECTABLE_POKEMON_NUM } from "../../constants/constant";
 const SelectButton = ({ pokemon, selectedPokemon, setSelectedPokemon }) => {
   const selectHandler = () => {
     const isMaxSelect = selectedPokemon.length === SELECTABLE_POKEMON_NUM;
-    const isAlreadySelected = selectedPokemon.some(
-      (selected) => selected.id === pokemon.id,
-    );
+    const isAlreadySelected = selectedPokemon.some((selected) => selected.id === pokemon.id);
 
     if (isMaxSelect || isAlreadySelected) {
       alert("포켓몬은 최대 여섯개까지만 선택할 수 있어요");
@@ -32,13 +30,13 @@ const StyledButton = styled(Button)`
 
   border-style: none;
   border-radius: 3px;
-  background-color: var(--button-primary);
+  background-color: var(--pink-primary);
 
   color: white;
   font-weight: 400;
 
   &:hover {
-    background-color: var(--button-hover);
+    background-color: var(--pink-hover);
     cursor: pointer;
   }
 `;

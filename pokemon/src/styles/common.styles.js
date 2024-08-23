@@ -2,8 +2,8 @@ import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
 :root {
-    --button-primary:#EE1D52;
-    --button-hover:#ff607e;
+    --pink-primary:#EE1D52;
+    --pink-hover:#ff607e;
     --yellow:#FFC107;
     --light-grey:#ededed;
     --grey:#c4c4c4;

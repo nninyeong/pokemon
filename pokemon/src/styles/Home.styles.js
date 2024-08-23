@@ -6,7 +6,7 @@ export const LogoImg = styled.img`
 `;
 
 export const NavButtonToDex = styled(NavButton)`
-  background-color: var(--button-primary);
+  background-color: var(--pink-primary);
   border-style: none;
   border-radius: 5px;
   width: 150px;
@@ -17,7 +17,7 @@ export const NavButtonToDex = styled(NavButton)`
   font-size: 14px;
 
   &:hover {
-    background-color: var(--button-hover);
+    background-color: var(--pink-hover);
     cursor: pointer;
   }
 `;

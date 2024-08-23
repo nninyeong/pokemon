@@ -3,9 +3,7 @@ import Button from "./Button";
 
 const RemoveButton = ({ pokemon, selectedPokemon, setSelectedPokemon }) => {
   const removeHandler = () => {
-    const removedList = selectedPokemon.filter(
-      (selected) => selected.id !== pokemon.id,
-    );
+    const removedList = selectedPokemon.filter((selected) => selected.id !== pokemon.id);
 
     setSelectedPokemon(removedList);
   };
@@ -26,13 +24,13 @@ const StyledButton = styled(Button)`
 
   border-style: none;
   border-radius: 3px;
-  background-color: var(--button-primary);
+  background-color: var(--pink-primary);
 
   color: white;
   font-weight: 400;
 
   &:hover {
-    background-color: var(--button-hover);
+    background-color: var(--pink-hover);
     cursor: pointer;
   }
 `;
