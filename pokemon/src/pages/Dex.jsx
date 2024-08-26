@@ -7,7 +7,6 @@ import { Provider } from "react-redux";
 import store from "../redux/configStore";
 
 const Dex = () => {
-  // const [selectedPokemon, setSelectedPokemon] = useState([]);
   return (
     <>
       <StyledContainer>
