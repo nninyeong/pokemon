@@ -8,7 +8,7 @@ const RemoveButton = ({ pokemon }) => {
 
   return (
     <StyledButton
-      className="removeButton"
+      className="cardButton"
       onClick={() => {
         dispatch({ type: removePokemon, payload: pokemon });
       }}

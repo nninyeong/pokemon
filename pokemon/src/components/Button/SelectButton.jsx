@@ -7,7 +7,7 @@ const SelectButton = ({ pokemon }) => {
   const dispatch = useDispatch();
 
   return (
-    <StyledButton className="saveRemoveButton" onClick={() => dispatch({ type: selectPokemon, payload: pokemon })}>
+    <StyledButton className="cardButton" onClick={() => dispatch({ type: selectPokemon, payload: pokemon })}>
       추가
     </StyledButton>
   );
