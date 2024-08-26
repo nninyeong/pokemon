@@ -3,8 +3,10 @@ import { getPath } from "../shared/Router";
 import SelectButton from "./Button/SelectButton";
 import RemoveButton from "./Button/RemoveButton";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 
-const PokemonCard = ({ pokemon, selectedPokemon, setSelectedPokemon, type }) => {
+const PokemonCard = ({ pokemon, type }) => {
+  const selectedPokemon = useSelector((state) => state.pokemonReducer);
   const navigate = useNavigate();
   const { img_url, korean_name, id } = pokemon;
 
@@ -26,9 +28,9 @@ const PokemonCard = ({ pokemon, selectedPokemon, setSelectedPokemon, type }) => 
       <StyledName>{korean_name}</StyledName>
       <p>No. {`${id}`.padStart(3, "0")}</p>
       {type === "inSelectList" ? (
-        <SelectButton pokemon={pokemon} selectedPokemon={selectedPokemon} setSelectedPokemon={setSelectedPokemon} />
+        <SelectButton pokemon={pokemon} selectedPokemon={selectedPokemon} />
       ) : (
-        <RemoveButton pokemon={pokemon} selectedPokemon={selectedPokemon} setSelectedPokemon={setSelectedPokemon} />
+        <RemoveButton pokemon={pokemon} selectedPokemon={selectedPokemon} />
       )}
     </StyledCard>
   );

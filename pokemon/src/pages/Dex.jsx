@@ -1,20 +1,20 @@
-import { useState } from "react";
+// import { useState } from "react";
 import Dashboard from "../components/Dashboard/Dashboard";
 import PokemonList from "../components/PokemonList";
 import MOCK_DATA from "../data/mock";
 import styled from "styled-components";
+import { Provider } from "react-redux";
+import store from "../redux/configStore";
 
 const Dex = () => {
-  const [selectedPokemon, setSelectedPokemon] = useState([]);
+  // const [selectedPokemon, setSelectedPokemon] = useState([]);
   return (
     <>
       <StyledContainer>
-        <Dashboard selectedPokemon={selectedPokemon} setSelectedPokemon={setSelectedPokemon} />
-        <PokemonList
-          pokemonList={MOCK_DATA}
-          selectedPokemon={selectedPokemon}
-          setSelectedPokemon={setSelectedPokemon}
-        />
+        <Provider store={store}>
+          <Dashboard />
+          <PokemonList pokemonList={MOCK_DATA} />
+        </Provider>
       </StyledContainer>
     </>
   );
