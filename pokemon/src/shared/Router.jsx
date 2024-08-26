@@ -2,6 +2,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import Dex from "../pages/Dex";
 import PokemonDetail from "../pages/PokemonDetail";
+import { Provider } from "react-redux";
+import { store } from "../redux/persistReducer";
+import { PersistGate } from "redux-persist/integration/react";
+import { persistor } from "../redux/persistReducer";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const PAGE_PATH = {
   Home: "/",
@@ -13,17 +19,19 @@ export const getPath = (page) => PAGE_PATH[page];
 
 const Router = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path={PAGE_PATH.Home} element={<Home />} />
-        <Route path={PAGE_PATH.Dex} element={<Dex />} />
-        <Route path={PAGE_PATH.PokemonDetail} element={<PokemonDetail />} />
-        <Route
-          path={PAGE_PATH.PokemonDetail + "/:id"}
-          element={<PokemonDetail />}
-        />
-      </Routes>
-    </BrowserRouter>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <ToastContainer />
+        <BrowserRouter>
+          <Routes>
+            <Route path={PAGE_PATH.Home} element={<Home />} />
+            <Route path={PAGE_PATH.Dex} element={<Dex />} />
+            <Route path={PAGE_PATH.PokemonDetail} element={<PokemonDetail />} />
+            <Route path={PAGE_PATH.PokemonDetail + "/:id"} element={<PokemonDetail />} />
+          </Routes>
+        </BrowserRouter>
+      </PersistGate>
+    </Provider>
   );
 };
 

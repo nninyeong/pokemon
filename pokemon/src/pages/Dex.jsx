@@ -1,19 +1,14 @@
-// import { useState } from "react";
 import Dashboard from "../components/Dashboard/Dashboard";
 import PokemonList from "../components/PokemonList";
 import MOCK_DATA from "../data/mock";
 import styled from "styled-components";
-import { Provider } from "react-redux";
-import store from "../redux/configStore";
 
 const Dex = () => {
   return (
     <>
       <StyledContainer>
-        <Provider store={store}>
-          <Dashboard />
-          <PokemonList pokemonList={MOCK_DATA} />
-        </Provider>
+        <Dashboard />
+        <PokemonList pokemonList={MOCK_DATA} />
       </StyledContainer>
     </>
   );
