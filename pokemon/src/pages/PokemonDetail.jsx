@@ -62,4 +62,8 @@ const StyledNavButtonToDex = styled(NavButton)`
   background-color: var(--light-grey);
 
   font-size: 16px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;

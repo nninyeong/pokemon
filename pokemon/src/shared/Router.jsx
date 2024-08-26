@@ -6,6 +6,8 @@ import { Provider } from "react-redux";
 import { store } from "../redux/persistReducer";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistor } from "../redux/persistReducer";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const PAGE_PATH = {
   Home: "/",
@@ -19,6 +21,7 @@ const Router = () => {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
+        <ToastContainer />
         <BrowserRouter>
           <Routes>
             <Route path={PAGE_PATH.Home} element={<Home />} />

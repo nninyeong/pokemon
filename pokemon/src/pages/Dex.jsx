@@ -1,9 +1,7 @@
-import { ToastContainer } from "react-toastify";
 import Dashboard from "../components/Dashboard/Dashboard";
 import PokemonList from "../components/PokemonList";
 import MOCK_DATA from "../data/mock";
 import styled from "styled-components";
-import "react-toastify/dist/ReactToastify.css";
 
 const Dex = () => {
   return (
@@ -11,7 +9,6 @@ const Dex = () => {
       <StyledContainer>
         <Dashboard />
         <PokemonList pokemonList={MOCK_DATA} />
-        <ToastContainer />
       </StyledContainer>
     </>
   );
