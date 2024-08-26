@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { SELECTABLE_POKEMON_NUM } from "../../constants/constant";
+import { toast } from "react-toastify";
 
-// const [selectedPokemon, setSelectedPokemon] = useState([]);
 const initialState = [];
 
 const pokemonSlice = createSlice({
@@ -12,8 +12,13 @@ const pokemonSlice = createSlice({
       const isMaxSelect = state.length === SELECTABLE_POKEMON_NUM;
       const isAlreadySelected = state.some((selected) => selected.id === action.payload.id);
 
-      if (isMaxSelect || isAlreadySelected) {
-        alert("포켓몬은 최대 여섯개까지만 선택할 수 있어요");
+      if (isMaxSelect) {
+        toast.error("포켓몬은 최대 6마리까지 선택할 수 있어요", { autoClose: 2000 });
+        return;
+      }
+
+      if (isAlreadySelected) {
+        toast.error("포켓몬은 중복 선택할 수 없어요", { autoClose: 2000 });
         return;
       }
       return [...state, action.payload];

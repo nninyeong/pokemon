@@ -13,7 +13,6 @@ const PokemonDetail = () => {
   const isSelected = selectedPokemon.some((selected) => selected.id === pokemon.id);
 
   if (!pokemon) {
-    // TODO: alert로 안내 후 Dex로 이동하도록 수정
     return <div>포켓몬을 찾을 수 없습니다.</div>;
   }
 
