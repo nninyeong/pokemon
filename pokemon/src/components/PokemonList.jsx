@@ -1,19 +1,11 @@
 import styled from "styled-components";
 import PokemonCard from "./PokemonCard";
 
-const PokemonList = ({ pokemonList, selectedPokemon, setSelectedPokemon }) => {
+const PokemonList = ({ pokemonList }) => {
   return (
     <StyledList>
       {pokemonList.map((pokemon) => {
-        return (
-          <PokemonCard
-            key={pokemon.id}
-            pokemon={pokemon}
-            selectedPokemon={selectedPokemon}
-            type="inSelectList"
-            setSelectedPokemon={setSelectedPokemon}
-          />
-        );
+        return <PokemonCard key={pokemon.id} pokemon={pokemon} type="inSelectList" />;
       })}
     </StyledList>
   );

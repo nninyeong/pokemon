@@ -1,21 +1,13 @@
 import styled from "styled-components";
 import Button from "./Button";
-import { SELECTABLE_POKEMON_NUM } from "../../constants/constant";
+import { useDispatch } from "react-redux";
+import { selectPokemon } from "../../redux/slices/pokemonSlice";
 
-const SelectButton = ({ pokemon, selectedPokemon, setSelectedPokemon }) => {
-  const selectHandler = () => {
-    const isMaxSelect = selectedPokemon.length === SELECTABLE_POKEMON_NUM;
-    const isAlreadySelected = selectedPokemon.some((selected) => selected.id === pokemon.id);
-
-    if (isMaxSelect || isAlreadySelected) {
-      alert("포켓몬은 최대 여섯개까지만 선택할 수 있어요");
-      return;
-    }
-    setSelectedPokemon([...selectedPokemon, pokemon]);
-  };
+const SelectButton = ({ pokemon }) => {
+  const dispatch = useDispatch();
 
   return (
-    <StyledButton className="selectButton" onClick={selectHandler}>
+    <StyledButton className="selectButton" onClick={() => dispatch({ type: selectPokemon, payload: pokemon })}>
       추가
     </StyledButton>
   );

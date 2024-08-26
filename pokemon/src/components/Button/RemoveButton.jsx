@@ -1,15 +1,18 @@
 import styled from "styled-components";
 import Button from "./Button";
+import { useDispatch } from "react-redux";
+import { removePokemon } from "../../redux/slices/pokemonSlice";
 
-const RemoveButton = ({ pokemon, selectedPokemon, setSelectedPokemon }) => {
-  const removeHandler = () => {
-    const removedList = selectedPokemon.filter((selected) => selected.id !== pokemon.id);
-
-    setSelectedPokemon(removedList);
-  };
+const RemoveButton = ({ pokemon }) => {
+  const dispatch = useDispatch();
 
   return (
-    <StyledButton className="removeButton" onClick={removeHandler}>
+    <StyledButton
+      className="removeButton"
+      onClick={() => {
+        dispatch({ type: removePokemon, payload: pokemon });
+      }}
+    >
       삭제
     </StyledButton>
   );
