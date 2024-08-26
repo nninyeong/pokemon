@@ -2,10 +2,11 @@ import Slot from "./Slot";
 import PokemonCard from "../PokemonCard";
 import { SELECTABLE_POKEMON_NUM } from "../../constants/constant";
 import styled from "styled-components";
-import useSelectedPokemon from "../../hooks/useSelectedPokemon";
+import { PokemonContext } from "../../contexts/PokemonContextProvider";
+import { useContext } from "react";
 
 const Dashboard = () => {
-  const [selectedPokemon] = useSelectedPokemon();
+  const { selectedPokemon } = useContext(PokemonContext);
 
   return (
     <StyledContainer>

@@ -1,18 +1,13 @@
 import styled from "styled-components";
 import Button from "./Button";
-import useSelectedPokemon from "../../hooks/useSelectedPokemon";
+import { useContext } from "react";
+import { PokemonContext } from "../../contexts/PokemonContextProvider";
 
 const RemoveButton = ({ pokemon }) => {
-  const [selectedPokemon, setSelectedPokemon] = useSelectedPokemon();
-
-  const removeHandler = () => {
-    const removedList = selectedPokemon.filter((selected) => selected.id !== pokemon.id);
-
-    setSelectedPokemon(removedList);
-  };
+  const { removePokemon } = useContext(PokemonContext);
 
   return (
-    <StyledButton className="removeButton" onClick={removeHandler}>
+    <StyledButton className="removeButton" onClick={() => removePokemon(pokemon)}>
       삭제
     </StyledButton>
   );

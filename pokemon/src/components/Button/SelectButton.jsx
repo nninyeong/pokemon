@@ -1,23 +1,18 @@
 import styled from "styled-components";
 import Button from "./Button";
-import { SELECTABLE_POKEMON_NUM } from "../../constants/constant";
-import useSelectedPokemon from "../../hooks/useSelectedPokemon";
+import { useContext } from "react";
+import { PokemonContext } from "../../contexts/PokemonContextProvider";
 
 const SelectButton = ({ pokemon }) => {
-  const [selectedPokemon, setSelectedPokemon] = useSelectedPokemon();
-  const selectHandler = () => {
-    const isMaxSelect = selectedPokemon.length === SELECTABLE_POKEMON_NUM;
-    const isAlreadySelected = selectedPokemon.some((selected) => selected.id === pokemon.id);
-
-    if (isMaxSelect || isAlreadySelected) {
-      alert("포켓몬은 최대 여섯개까지만 선택할 수 있어요");
-      return;
-    }
-    setSelectedPokemon([...selectedPokemon, pokemon]);
-  };
+  const { selectPokemon } = useContext(PokemonContext);
 
   return (
-    <StyledButton className="selectButton" onClick={selectHandler}>
+    <StyledButton
+      className="selectButton"
+      onClick={() => {
+        selectPokemon(pokemon);
+      }}
+    >
       추가
     </StyledButton>
   );
