@@ -10,7 +10,7 @@ const RemoveButton = ({ pokemon }) => {
     <StyledButton
       className="cardButton"
       onClick={() => {
-        dispatch({ type: removePokemon, payload: pokemon });
+        dispatch(removePokemon(pokemon));
       }}
     >
       삭제
