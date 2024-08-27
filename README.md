@@ -43,6 +43,16 @@ react-router-dom을 이용해 라우팅을 구현했습니다.
 <br/>
 <br/>
 
+5. FadeIn 효과
+
+![fadein](https://github.com/user-attachments/assets/069e9037-d44f-4b47-ac3c-29611e6d253e)
+
+스크롤되며 브라우저에 카드가 나타났을 때를 InterSectionObserver로 감지하여 opacity fade in 효과를 주었습니다.
+
+
+<br/>
+<br/>
+
 # 트러블 슈팅
 ✔︎ 처음 사용하는 라이브러리들의 사용법 파악이 어려웠음
 - 한번에 새로운 기술들이 여럿 포함되면서 혼란이 있었음
