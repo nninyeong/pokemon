@@ -4,6 +4,7 @@ import SelectButton from "./Button/SelectButton";
 import RemoveButton from "./Button/RemoveButton";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
+import useScrollFadeIn from "../hooks/useScrollFadeIn";
 
 const PokemonCard = ({ pokemon, type }) => {
   const selectedPokemon = useSelector((state) => state.pokemonReducer);
@@ -17,12 +18,17 @@ const PokemonCard = ({ pokemon, type }) => {
     navigate(path);
   };
 
+  let animatedItem = useScrollFadeIn();
+  if (type !== "inSelectList") animatedItem = {};
+
   return (
     <StyledCard
       className="pokemonCard"
       onClick={(e) => {
         moveDetail(e, pokemon);
       }}
+      {...animatedItem}
+      // {type === "inSelectList" ? ...animatedItem}
     >
       <img src={img_url} alt={`${korean_name}의 이미지`} />
       <StyledName>{korean_name}</StyledName>
@@ -50,11 +56,12 @@ const StyledCard = styled.div`
   gap: 10px;
 
   background-color: white;
+  transition: linear 0.1ms;
 
   &:hover {
     cursor: pointer;
     box-shadow: 1px 5px 8px var(--grey);
-    transform: translateY(-5px);
+    transform: translateY(-5px) !important;
     transition: 0.1s;
   }
 `;
